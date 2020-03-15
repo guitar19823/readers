@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  div(class='table')
+    div(class='head')
+      div(class='head_row')
+        span(class='head_cell bold')= 'Автор'
+        span(class='head_cell bold')= 'Возраст'
+        span(class='head_cell bold')= 'Название'
+        span(class='head_cell bold')= 'Год'
+    div(class='body')
+      -for (let i = 0; i < data.length; i++)
+        -for (let j = 0; j < data[i].books.length; j++)
+          if (j === 0)
+            div(class='body_row')
+              span(class='body_cell bold')= data[i].name
+              span(class='body_cell bold')= data[i].old
+              span(class='body_cell')= data[i].books[j].title
+              span(class='body_cell')= data[i].books[j].year
+          div(class='body_row')
+            span(class='body_cell')= ''
+            span(class='body_cell')= ''
+            span(class='body_cell')= data[i].books[j].title
+            span(class='body_cell')= data[i].books[j].year
+        if (i < data.length - 1)
+          div(class='body_row separator')
