@@ -5,6 +5,8 @@ module.exports = async (url) => {
     const { user, book } = await fetch(url)
       .then(res => res.json());
 
+    console.log(user);
+    console.log(book);
     return joinDatasById(user, book);
   } catch (e) {
     throw new Error('Не удалось получить данные');
